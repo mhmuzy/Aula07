@@ -1,0 +1,38 @@
+﻿@model Projeto.Presentation.Models.CadastrarClienteViewModel
+
+@{
+    Layout = "~/Views/Templates/Layout.cshtml";
+}
+
+<h4>Cadastrar novo cliente</h4>
+Preencha o formulário abaixo para realizar o cadastro.
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+
+        @using (Html.BeginForm())
+        {
+            <div class="text-danger">
+                @Html.ValidationSummary()
+            </div>
+
+            <label>Nome do Cliente:</label>
+            @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+            <br />
+
+            <label>Email:</label>
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+            <br />
+
+            <input type="submit" value="Cadastrar Cliente"
+                   class="btn btn-success" />
+            <br/>
+            <br/>
+
+            <strong>@TempData["Mensagem"]</strong>
+        }
+
+    </div>
+</div>
+
